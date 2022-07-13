@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_lv_allocation_tree" model="ir.ui.view">
+        <field name="name">hr.lv.allocation.tree</field>
+        <field name="model">hr.lv.allocation</field>
+        <field name="arch" type="xml">
+            <tree string="Luncheon vouchers allocations">
+                <header>
+                    <button type="object" name="confirm_allocation" string="Confirm allocations" class="btn-primary" />
+                    <button type="object" name="back_to_draft" string="Back to draft" class="btn-secundary" />
+                    <button type="object" name="distribute_allocation" string="Distribute Luncheons Vouchers" class="btn-primary" />
+                </header>
+                <field name="employee_id" />
+                <field name="state" />
+                <field name="date_from" />
+                <field name="date_to" />
+                <field name="number_acquired_lv" />
+                <field name="number_dued_lv" />
+                <field name="number_distributed_lv" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="act_lv_allocations" model="ir.actions.act_window">
+        <field name="name">Luncheon vouchers allocations</field>
+        <field name="res_model">hr.lv.allocation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
