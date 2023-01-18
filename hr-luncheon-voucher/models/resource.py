@@ -7,7 +7,11 @@ class ResourceCalendar(models.Model):
     _inherit = "resource.calendar"
 
     def _retrieve_day_matching_attendances(self, day):
-        domain = [("calendar_id", "=", self.id),("dayofweek", "=", day.weekday())]
+        domain = [
+            ("calendar_id", "=", self.id),
+            ("dayofweek", "=", day.weekday()),
+            ("effective_attendance_period", "=", True)
+        ]
         if self.two_weeks_calendar:
             # Employee has Even/Odd weekly calendar
             week_type = 1 if int(math.floor((day.toordinal() - 1) / 7) % 2) else 0
