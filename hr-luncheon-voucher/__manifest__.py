@@ -2,7 +2,7 @@
 {
     "name": "HR Luncheon Voucher",
     "category": "Human Resources",
-    "version": "14.0.1.1.0",
+    "version": "14.0.1.2.0",
     "summary": "Manage luncheon vouchers credit and distribution",
     "author": "Elabore",
     "website": "https://elabore.coop/",
