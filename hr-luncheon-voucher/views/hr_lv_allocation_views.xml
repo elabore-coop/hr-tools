@@ -9,7 +9,8 @@
                 <field name="state" />
                 <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]" />
                 <filter name="confirmed" string="Confirmed" domain="[('state', '=', 'confirmed')]" />
-                <filter name="distributed" string="Distributed" domain="[('state', '=', 'distributed')]" />
+                <filter name="distributed" string="Distributed"
+                    domain="[('state', '=', 'distributed')]" />
             </search>
         </field>
     </record>
@@ -20,10 +21,14 @@
         <field name="arch" type="xml">
             <tree string="Luncheon vouchers allocations">
                 <header>
-                    <button type="object" name="confirm_allocation" string="Confirm" class="btn-primary" />
-                    <button type="object" name="distribute_allocation" string="Distribute Vouchers" class="btn-primary" />
-                    <button type="object" name="back_to_draft" string="Back to draft" class="btn-secundary" />
-                    <button type="object" name="adjust_distribution" string="Adjust distribution" class="btn-secundary" />
+                    <button type="object" name="confirm_allocation" string="Confirm"
+                        class="btn-primary" />
+                    <button type="object" name="distribute_allocation" string="Distribute Vouchers"
+                        class="btn-primary" />
+                    <button type="object" name="back_to_draft" string="Back to draft"
+                        class="btn-secundary" />
+                    <button type="object" name="adjust_distribution" string="Adjust distribution"
+                        class="btn-secundary" />
                 </header>
                 <field name="distrib_campaign_name" />
                 <field name="employee_id" />
@@ -43,14 +48,18 @@
         <field name="arch" type="xml">
             <form string="">
                 <header>
-                    <button type="object" name="confirm_allocation" string="Confirm" class="btn-primary" attrs="{'invisible': [('state', '!=', 'draft')]}" />
-                    <button type="object" name="distribute_allocation" string="Distribute Vouchers" class="btn-primary" attrs="{'invisible': [('state', '!=', 'confirmed')]}" />
-                    <button type="object" name="back_to_draft" string="Back to draft" class="btn-secundary" attrs="{'invisible': [('state', '=', 'draft')]}" />
-                    <button type="object" name="adjust_distribution" string="Adjust distribution" class="btn-secundary" attrs="{'invisible': [('state', '!=', 'draft')]}" />
+                    <button type="object" name="confirm_allocation" string="Confirm"
+                        class="btn-primary" attrs="{'invisible': [('state', '!=', 'draft')]}" />
+                    <button type="object" name="distribute_allocation" string="Distribute Vouchers"
+                        class="btn-primary" attrs="{'invisible': [('state', '!=', 'confirmed')]}" />
+                    <button type="object" name="back_to_draft" string="Back to draft"
+                        class="btn-secundary" attrs="{'invisible': [('state', '=', 'draft')]}" />
+                    <button type="object" name="adjust_distribution" string="Adjust distribution"
+                        class="btn-secundary" attrs="{'invisible': [('state', '!=', 'draft')]}" />
                 </header>
                 <sheet>
                     <h1>
-                        <field name="name" />
+                        <field name="name" readonly="1" />
                     </h1>
                     <group string="Request context">
                         <field name="distrib_campaign_name" />

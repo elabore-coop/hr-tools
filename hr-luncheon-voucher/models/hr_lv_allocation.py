@@ -97,6 +97,7 @@ class LuncheonVouchersAllocation(models.Model):
         },
     )
 
+    @api.model_create_multi
     def create(self, values):
         res = super(LuncheonVouchersAllocation, self).create(values)
         res._calculate_number_acquired_lv()
