@@ -3,7 +3,7 @@
 
 {
     "name": "hr_effective_attendance_period",
-    "version": "14.0.1.0.0",
+    "version": "14.0.2.0.0",
     "author": "Elabore",
     "website": "https://elabore.coop",
     "maintainer": "Stéphan Sainléger",
