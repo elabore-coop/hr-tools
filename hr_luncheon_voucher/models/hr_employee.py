@@ -58,7 +58,7 @@ class HrEmployeeBase(models.AbstractModel):
         self.env["hr.lv.allocation"].create(values)
 
     def action_lv_allocations(self):
-        action = self.env["ir.actions.act_window"]._for_xml_id("hr-luncheon-voucher.act_lv_allocations")
+        action = self.env["ir.actions.act_window"]._for_xml_id("hr_luncheon_voucher.act_lv_allocations")
         action['context'] = {
             'search_default_employee_id': self.id,
             'default_employee_id': self.id,
@@ -68,7 +68,7 @@ class HrEmployeeBase(models.AbstractModel):
 
     def action_lv_allocations_requests_wizard(self):
         action = self.env["ir.actions.act_window"]._for_xml_id(
-            "hr-luncheon-voucher.lv_allocations_requests_wizard_action"
+            "hr_luncheon_voucher.lv_allocations_requests_wizard_action"
         )
         ctx = dict(self.env.context)
         ctx["active_ids"] = self.ids

@@ -20,7 +20,7 @@ HR managers can ajust the number of luncheon vouchers to distribute, and follow 
 
 Installation
 ============
-Use Odoo normal module installation procedure to install ``hr-luncheon-voucher``.
+Use Odoo normal module installation procedure to install ``hr_luncheon_voucher``.
 
 Configuration
 =============

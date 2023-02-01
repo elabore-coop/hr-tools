@@ -26,4 +26,4 @@ class GenerateLVAllocationRequests(models.TransientModel):
         )
         employees.generate_mass_lv_allocation(values)
         # Open lv allocation tree view
-        return self.env["ir.actions.act_window"]._for_xml_id("hr-luncheon-voucher.act_lv_allocations")
+        return self.env["ir.actions.act_window"]._for_xml_id("hr_luncheon_voucher.act_lv_allocations")
