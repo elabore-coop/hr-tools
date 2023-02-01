@@ -1,18 +1,13 @@
-# -*- coding: utf-8 -*-
-import math
-from datetime import datetime, date, timedelta, time
+from datetime import datetime, timedelta, time
 from dateutil.rrule import rrule, DAILY
-from pytz import timezone, UTC, utc
+from pytz import UTC
 
-from odoo import fields, models, api, _
+from odoo import fields, models, api
 
 
 class LuncheonVouchersAllocation(models.Model):
     _name = "hr.lv.allocation"
     _description = "Luncheon Vouchers Allocation"
-    _order = "create_date desc"
-    _inherit = ["mail.thread", "mail.activity.mixin"]
-    _mail_post_access = "read"
 
     name = fields.Char('Name')
     distrib_campaign_name = fields.Char('Distribution campaign')
@@ -24,30 +19,25 @@ class LuncheonVouchersAllocation(models.Model):
         ],
         string="Status",
         readonly=True,
-        tracking=True,
         copy=False,
         default="draft",
-        help="The status is set to 'Draft', when an allocation request is created."
-        + "\nThe status is 'Confirmed', when an allocation request is confirmed by HR manager."
-        + "\nThe status is 'Distributed', when the luncheon vouchers have been distributed.",
+        help="The status is set to 'Draft', when an allocation request is created. The status is 'Confirmed', when an allocation request is confirmed by HR manager. The status is 'Distributed', when the luncheon vouchers have been distributed.",
     )
     date_from = fields.Datetime(
-        string=_("Start Date"),
+        string="Start Date",
         store=True,
         readonly=False,
         copy=False,
-        tracking=True,
         states={
             "confirmed": [("readonly", True)],
             "distributed": [("readonly", True)],
         },
     )
     date_to = fields.Datetime(
-        string=_("End Date"),
+        string="End Date",
         store=True,
         readonly=False,
         copy=False,
-        tracking=True,
         states={
             "confirmed": [("readonly", True)],
             "distributed": [("readonly", True)],
@@ -56,41 +46,37 @@ class LuncheonVouchersAllocation(models.Model):
     employee_id = fields.Many2one(
         "hr.employee",
         store=True,
-        string=_("Employee"),
+        string="Employee",
         index=True,
         readonly=False,
         ondelete="restrict",
-        tracking=True,
         states={
             "confirmed": [("readonly", True)],
             "distributed": [("readonly", True)],
         },
     )
     number_acquired_lv = fields.Integer(
-        string=_("Acquired Vouchers"),
+        string="Acquired Vouchers",
         store=True,
         readonly=False,
-        tracking=True,
         states={
             "confirmed": [("readonly", True)],
             "distributed": [("readonly", True)],
         },
     )
     number_dued_lv = fields.Integer(
-        string=_("Dued Vouchers"),
+        string="Dued Vouchers",
         store=True,
         readonly=False,
-        tracking=True,
         states={
             "confirmed": [("readonly", True)],
             "distributed": [("readonly", True)],
         },
     )
     number_distributed_lv = fields.Integer(
-        string=_("Distributed Vouchers"),
+        string="Distributed Vouchers",
         store=True,
         readonly=False,
-        tracking=True,
         states={
             "confirmed": [("readonly", False)],
             "distributed": [("readonly", True)],

@@ -1,7 +1,5 @@
-# -*- coding: utf-8 -*-
-
 from xml.dom.minicompat import EmptyNodeList
-from odoo import fields, models, api, _
+from odoo import fields, models
 
 
 class HrEmployeeBase(models.AbstractModel):
@@ -10,17 +8,17 @@ class HrEmployeeBase(models.AbstractModel):
     lv_allocations_ids = fields.One2many("hr.lv.allocation", "employee_id")
 
     total_acquired_lv = fields.Integer(
-        string=_("Total allocated luncheon vouchers"), store=True, copy=False
+        string="Total allocated luncheon vouchers", store=True, copy=False
     )
     distributed_lv = fields.Integer(
-        string=_("Distributed luncheon vouchers"), store=True, copy=False
+        string="Distributed luncheon vouchers", store=True, copy=False
     )
     dued_lv = fields.Integer(
-        string=_("Remaining luncheon vouchers"), store=True, copy=False
+        string="Remaining luncheon vouchers", store=True, copy=False
     )
 
     default_monthly_lv = fields.Integer(
-        string=_("Default monthly distribution"), store=True, copy=True
+        string="Default monthly distribution", store=True, copy=True
     )
 
     def refresh_lv_values(self):

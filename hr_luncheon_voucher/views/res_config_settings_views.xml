@@ -9,14 +9,16 @@
             <xpath expr="//div[@name='employee_rights_setting_container']/.." position="inside">
                 <h2>Employee Luncheon Vouchers</h2>
                 <div class="row mt16 o_settings_container" name="employee_lv_container">
-                    <div class="col-12 col-lg-6 o_setting_box" id="employee_lv_halfday_cancel" title="Luncheon Vouchers Half-day Cancel">
+                    <div class="col-12 col-lg-6 o_setting_box" id="employee_lv_halfday_cancel"
+                        title="Luncheon Vouchers Half-day Cancel">
                         <div class="o_setting_left_pane">
                             <field name="hr_half_day_cancels_voucher" />
                         </div>
                         <div class="o_setting_right_pane">
                             <label for="hr_half_day_cancels_voucher" />
                             <div class="text-muted" name="hr_presence_options_advanced">
-                                        Voucher is acquired only if the employee worked during all his attendance.
+                                Voucher is acquired only if the employee worked during all his
+                                attendance.
                             </div>
                         </div>
                     </div>

@@ -1,16 +1,17 @@
-from odoo import _, api, fields, models
+from odoo import fields, models
 
 
 class GenerateLVAllocationRequests(models.TransientModel):
     _name = "generate.lv.allocation.requests"
     _description = "Generate Luncheon Vouchers Allocations Requests"
+    
     distrib_campaign_name = fields.Char('Distribution campaign', required=True)
     date_from = fields.Datetime(
-        string=_("Start Date"),
+        string="Start Date",
         required=True
     )
     date_to = fields.Datetime(
-        string=_("End Date"),
+        string="End Date",
         required=True
     )
 
