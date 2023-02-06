@@ -98,7 +98,12 @@ class LuncheonVouchersAllocation(models.Model):
 
     def _has_cancelling_voucher_event(self, day):
         category_no_voucher_ids = self.env["calendar.event.type"].search([("remove_luncheon_voucher", "=", True)])
-        events = self.env["calendar.event"].search([("categ_ids", "in", category_no_voucher_ids.ids)])
+        events = self.env["calendar.event"].search(
+            [
+                ("categ_ids", "in", category_no_voucher_ids.ids),
+                ("partner_ids", "in", self.employee_id.user_id.partner_id.id)
+            ]
+        )
         day_start = fields.Datetime.to_datetime(day.date())
         day_end = fields.Datetime.to_datetime(day.date()) + timedelta(hours=24)
         cancelling_events = events.filtered(lambda x: not((x.start < day_start) and (x.stop <= day_start)) and not((x.start >= day_end) and (x.stop > day_end)) )
