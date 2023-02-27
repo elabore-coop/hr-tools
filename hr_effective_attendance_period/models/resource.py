@@ -1,5 +1,7 @@
 import math
-from datetime import timedelta
+import pytz
+from datetime import datetime, timedelta
+from pytz import timezone
 from odoo import models, fields
 
 
@@ -40,15 +42,21 @@ class ResourceCalendar(models.Model):
         afternoon_worked = len(day_attendances.filtered(lambda x: x.day_period == "afternoon")) > 0
         return morning_worked and afternoon_worked
 
+    def _compute_datetime_in_utc_tz(self, date):
+        dt_now = datetime.now(pytz.timezone(self.env.context.get('tz', 'utc') or 'utc'))
+        utc_date = date - dt_now.utcoffset()
+        return utc_date
 
     def _is_worked_attendance(self, resource, day, attendance):
         attendance_start = fields.Datetime.to_datetime(day.date()) + timedelta(hours=attendance.hour_from)
         attendance_end = fields.Datetime.to_datetime(day.date()) + timedelta(hours=attendance.hour_to)
-        resource_leaves = self.env["resource.calendar.leaves"].search(
+        utc_start = self._compute_datetime_in_utc_tz(attendance_start)
+        utc_end = self._compute_datetime_in_utc_tz(attendance_end)
+        resource_leaves = self.env["resource.calendar.leaves"].sudo().search(
             [
                 ("company_id", "=", resource.company_id.id),
-                ("date_from", "<=", attendance_start),
-                ("date_to", ">=", attendance_end),
+                ("date_from", "<=", utc_start),
+                ("date_to", ">=", utc_end),
                 "|",
                 ("resource_id", "=", resource.id),
                 ("resource_id", "=", None),
