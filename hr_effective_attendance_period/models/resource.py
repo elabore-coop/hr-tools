@@ -43,9 +43,8 @@ class ResourceCalendar(models.Model):
         return morning_worked and afternoon_worked
 
     def _compute_datetime_in_utc_tz(self, date):
-        dt_now = datetime.now(pytz.timezone(self.env.context.get('tz', 'utc') or 'utc'))
-        utc_date = date - dt_now.utcoffset()
-        return utc_date
+        user_tz = pytz.timezone(self.env.context.get('tz', 'utc') or 'utc')
+        return user_tz.localize(date).astimezone(pytz.utc)        
 
     def _is_worked_attendance(self, resource, day, attendance):
         attendance_start = fields.Datetime.to_datetime(day.date()) + timedelta(hours=attendance.hour_from)
