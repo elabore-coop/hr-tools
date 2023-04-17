@@ -1,5 +1,5 @@
 from xml.dom.minicompat import EmptyNodeList
-from odoo import fields, models
+from odoo import fields, models, api
 
 
 class HrEmployeeBase(models.AbstractModel):
@@ -72,3 +72,12 @@ class HrEmployeeBase(models.AbstractModel):
         ctx["active_ids"] = self.ids
         action["context"] = ctx
         return action
+    
+    @api.model
+    def _name_search(self, name='', args=None, operator='ilike', limit=100, name_get_uid=None):
+        """
+            On lv allocation, allow employee search on all companies
+        """
+        if self.env.context.get('search_all_campanies'):
+            return super(HrEmployeeBase, self.sudo())._name_search(name, args, operator, limit, name_get_uid)
+        return super(HrEmployeeBase, self)._name_search(name, args, operator, limit, name_get_uid)

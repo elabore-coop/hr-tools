@@ -7,6 +7,8 @@
         <field name="arch" type="xml">
             <search string="Luncheon vouchers allocations">
                 <field name="state" />
+                <field name="employee_id" context="{'search_all_campanies':True}" />
+                <field name="distrib_campaign_name" />
                 <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]" />
                 <filter name="confirmed" string="Confirmed" domain="[('state', '=', 'confirmed')]" />
                 <filter name="distributed" string="Distributed"
