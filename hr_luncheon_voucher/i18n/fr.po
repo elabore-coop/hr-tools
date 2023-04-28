@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-24 22:02+0000\n"
-"PO-Revision-Date: 2023-01-24 22:02+0000\n"
+"POT-Creation-Date: 2023-04-28 12:49+0000\n"
+"PO-Revision-Date: 2023-04-28 12:49+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,11 +21,9 @@ msgid "Acquired"
 msgstr "Acquis"
 
 #. module: hr_luncheon_voucher
-#: code:addons/hr_luncheon_voucher/models/hr_lv_allocation.py:0
-#: code:addons/hr_luncheon_voucher/models/hr_lv_allocation.py:0
-#, python-format
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_hr_lv_allocation__number_acquired_lv
 msgid "Acquired Vouchers"
-msgstr "Tickets acquis"
+msgstr "Tickets Acquis"
 
 #. module: hr_luncheon_voucher
 #: model_terms:ir.ui.view,arch_db:hr_luncheon_voucher.hr_lv_allocation_form
@@ -40,9 +38,24 @@ msgid "Back to draft"
 msgstr "Brouillon"
 
 #. module: hr_luncheon_voucher
+#: model:ir.model,name:hr_luncheon_voucher.model_hr_employee_base
+msgid "Basic Employee"
+msgstr "Employé basique"
+
+#. module: hr_luncheon_voucher
 #: model_terms:ir.ui.view,arch_db:hr_luncheon_voucher.lv_allocations_requests_wizard
 msgid "Cancel"
 msgstr "Annuler"
+
+#. module: hr_luncheon_voucher
+#: model:ir.model,name:hr_luncheon_voucher.model_res_company
+msgid "Companies"
+msgstr "Sociétés"
+
+#. module: hr_luncheon_voucher
+#: model:ir.model,name:hr_luncheon_voucher.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de config"
 
 #. module: hr_luncheon_voucher
 #: model_terms:ir.ui.view,arch_db:hr_luncheon_voucher.hr_lv_allocation_form
@@ -80,11 +93,21 @@ msgid "Created on"
 msgstr "Créé le"
 
 #. module: hr_luncheon_voucher
-#: code:addons/hr_luncheon_voucher/models/hr_employee.py:0
-#: code:addons/hr_luncheon_voucher/models/hr_employee.py:0
-#, python-format
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_hr_employee__default_monthly_lv
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_hr_employee_base__default_monthly_lv
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_hr_employee_public__default_monthly_lv
 msgid "Default monthly distribution"
-msgstr "Distribution mensuelle par défaut"
+msgstr ""
+
+#. module: hr_luncheon_voucher
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_calendar_event_type__display_name
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_generate_lv_allocation_requests__display_name
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_hr_employee_base__display_name
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_hr_lv_allocation__display_name
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_res_company__display_name
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
 
 #. module: hr_luncheon_voucher
 #: model_terms:ir.ui.view,arch_db:hr_luncheon_voucher.hr_lv_allocation_form
@@ -100,18 +123,16 @@ msgid "Distributed"
 msgstr "Distribué"
 
 #. module: hr_luncheon_voucher
-#: code:addons/hr_luncheon_voucher/models/hr_lv_allocation.py:0
-#: code:addons/hr_luncheon_voucher/models/hr_lv_allocation.py:0
-#, python-format
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_hr_lv_allocation__number_distributed_lv
 msgid "Distributed Vouchers"
 msgstr "Tickets distribués"
 
 #. module: hr_luncheon_voucher
-#: code:addons/hr_luncheon_voucher/models/hr_employee.py:0
-#: code:addons/hr_luncheon_voucher/models/hr_employee.py:0
-#, python-format
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_hr_employee__distributed_lv
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_hr_employee_base__distributed_lv
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_hr_employee_public__distributed_lv
 msgid "Distributed luncheon vouchers"
-msgstr "Tickets distribués"
+msgstr "Tickets resto distribués"
 
 #. module: hr_luncheon_voucher
 #: model:ir.model.fields,field_description:hr_luncheon_voucher.field_generate_lv_allocation_requests__distrib_campaign_name
@@ -131,16 +152,12 @@ msgid "Dued"
 msgstr "Dû"
 
 #. module: hr_luncheon_voucher
-#: code:addons/hr_luncheon_voucher/models/hr_lv_allocation.py:0
-#: code:addons/hr_luncheon_voucher/models/hr_lv_allocation.py:0
-#, python-format
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_hr_lv_allocation__number_dued_lv
 msgid "Dued Vouchers"
 msgstr "Tickets dûs"
 
 #. module: hr_luncheon_voucher
-#: code:addons/hr_luncheon_voucher/models/hr_lv_allocation.py:0
-#: code:addons/hr_luncheon_voucher/models/hr_lv_allocation.py:0
-#, python-format
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_hr_lv_allocation__employee_id
 msgid "Employee"
 msgstr "Employé"
 
@@ -150,13 +167,15 @@ msgid "Employee Luncheon Vouchers"
 msgstr "Tickets Restaurant de l'employé"
 
 #. module: hr_luncheon_voucher
-#: code:addons/hr_luncheon_voucher/models/hr_lv_allocation.py:0
-#: code:addons/hr_luncheon_voucher/models/hr_lv_allocation.py:0
-#: code:addons/hr_luncheon_voucher/wizard/generate_lv_allocations_wizard.py:0
-#: code:addons/hr_luncheon_voucher/wizard/generate_lv_allocations_wizard.py:0
-#, python-format
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_generate_lv_allocation_requests__date_to
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_hr_lv_allocation__date_to
 msgid "End Date"
 msgstr "Date de fin"
+
+#. module: hr_luncheon_voucher
+#: model:ir.model,name:hr_luncheon_voucher.model_calendar_event_type
+msgid "Event Meeting Type"
+msgstr "Type d'événement réunion"
 
 #. module: hr_luncheon_voucher
 #: model_terms:ir.ui.view,arch_db:hr_luncheon_voucher.view_employee_tree_lv
@@ -256,23 +275,26 @@ msgid "Period to consider"
 msgstr "Période du calcul"
 
 #. module: hr_luncheon_voucher
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_calendar_event_type__ref
+msgid "Reference"
+msgstr "Référence"
+
+#. module: hr_luncheon_voucher
 #: model_terms:ir.ui.view,arch_db:hr_luncheon_voucher.view_employee_form_lv
 msgid "Refresh Luncheon Vouchers"
 msgstr "Rafraîchir les Tickets Restaurants"
 
 #. module: hr_luncheon_voucher
-#: code:addons/hr_luncheon_voucher/models/hr_employee.py:0
-#: code:addons/hr_luncheon_voucher/models/hr_employee.py:0
-#, python-format
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_hr_employee__dued_lv
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_hr_employee_base__dued_lv
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_hr_employee_public__dued_lv
 msgid "Remaining luncheon vouchers"
-msgstr "Tickets restaurants restants"
+msgstr ""
 
 #. module: hr_luncheon_voucher
-#: code:addons/hr_luncheon_voucher/models/calendar_event_type.py:0
-#: code:addons/hr_luncheon_voucher/models/calendar_event_type.py:0
-#, python-format
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_calendar_event_type__remove_luncheon_voucher
 msgid "Remove luncheon voucher"
-msgstr "Retirer Ticket restaurant"
+msgstr "Supprimer le ticket"
 
 #. module: hr_luncheon_voucher
 #: model_terms:ir.ui.view,arch_db:hr_luncheon_voucher.hr_lv_allocation_form
@@ -280,11 +302,8 @@ msgid "Request context"
 msgstr "Contexte de la requête"
 
 #. module: hr_luncheon_voucher
-#: code:addons/hr_luncheon_voucher/models/hr_lv_allocation.py:0
-#: code:addons/hr_luncheon_voucher/models/hr_lv_allocation.py:0
-#: code:addons/hr_luncheon_voucher/wizard/generate_lv_allocations_wizard.py:0
-#: code:addons/hr_luncheon_voucher/wizard/generate_lv_allocations_wizard.py:0
-#, python-format
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_generate_lv_allocation_requests__date_from
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_hr_lv_allocation__date_from
 msgid "Start Date"
 msgstr "Date de début"
 
@@ -296,21 +315,33 @@ msgstr "État"
 #. module: hr_luncheon_voucher
 #: model:ir.model.fields,help:hr_luncheon_voucher.field_hr_lv_allocation__state
 msgid ""
-"The status is set to 'Draft', when an allocation request is created.\n"
-"The status is 'Confirmed', when an allocation request is confirmed by HR manager.\n"
-"The status is 'Distributed', when the luncheon vouchers have been distributed."
-msgstr "Le statut est 'Brouillon', quand une demande d'allocation est créée.\n"
-"Le statut est 'Confirmé', quand une demande d'allocation est confirmé par le responsable RH.\n"
-"Le statut est 'Distribué', quand les tickets restaurant ont été distribués."
+"The status is set to 'Draft', when an allocation request is created. The "
+"status is 'Confirmed', when an allocation request is confirmed by HR "
+"manager. The status is 'Distributed', when the luncheon vouchers have been "
+"distributed."
+msgstr ""
 
 #. module: hr_luncheon_voucher
-#: code:addons/hr_luncheon_voucher/models/hr_employee.py:0
-#: code:addons/hr_luncheon_voucher/models/hr_employee.py:0
-#, python-format
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_hr_employee__total_acquired_lv
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_hr_employee_base__total_acquired_lv
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_hr_employee_public__total_acquired_lv
 msgid "Total allocated luncheon vouchers"
-msgstr "Total Tickets restaurant alloués"
+msgstr ""
 
 #. module: hr_luncheon_voucher
 #: model_terms:ir.ui.view,arch_db:hr_luncheon_voucher.res_config_settings_lv_form
-msgid "Voucher is acquired only if the employee worked during all his attendance."
-msgstr "Les tickets sont acquis seulement si l'employé a travaillé durant toutes la période de présence."
+msgid ""
+"Voucher is acquired only if the employee worked during all his\n"
+"                                attendance."
+msgstr ""
+
+#. module: hr_luncheon_voucher
+#: model:ir.model.fields,help:hr_luncheon_voucher.field_hr_lv_allocation__lv_balance
+msgid ""
+"Vouchers available after distribution. Dued vouchers - Distributed vouchers"
+msgstr "Tickets disponibles après distribution. = Tickets dûs - tickets distribués"
+
+#. module: hr_luncheon_voucher
+#: model:ir.model.fields,field_description:hr_luncheon_voucher.field_hr_lv_allocation__lv_balance
+msgid "Vouchers balance"
+msgstr "Solde TR"

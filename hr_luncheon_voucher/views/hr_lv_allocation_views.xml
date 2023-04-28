@@ -40,6 +40,7 @@
                 <field name="number_acquired_lv" />
                 <field name="number_dued_lv" />
                 <field name="number_distributed_lv" />
+                <field name="lv_balance" />
             </tree>
         </field>
     </record>

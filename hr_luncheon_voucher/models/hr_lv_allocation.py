@@ -83,6 +83,13 @@ class LuncheonVouchersAllocation(models.Model):
         },
     )
 
+    lv_balance = fields.Integer('Vouchers balance', compute="_get_lv_balance", help="Vouchers available after distribution. Dued vouchers - Distributed vouchers")
+
+    @api.depends("number_dued_lv", "number_distributed_lv")
+    def _get_lv_balance(self):
+        for allocation in self:
+            allocation.lv_balance = allocation.number_dued_lv - allocation.number_distributed_lv
+
     @api.model_create_multi
     def create(self, values):
         res = super(LuncheonVouchersAllocation, self).create(values)
