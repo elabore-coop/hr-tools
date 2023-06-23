@@ -5,7 +5,7 @@ from odoo import fields, models, api
 class HrExpense(models.Model):
     _inherit = "hr.expense"
 
-    project_id = fields.Many2one('project.project')
+    project_id = fields.Many2one('project.project', string="Projet", required=True)
 
     @api.onchange('project_id')
     def set_analytic_account(self):
