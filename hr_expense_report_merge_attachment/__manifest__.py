@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    "name": "hr_effective_attendance_period",
+    "name": "hr_expense_report_merge_attachment",
     "version": "14.0.0.0.0",
     "author": "Elabore",
     "website": "https://elabore.coop",
