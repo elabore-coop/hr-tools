@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hr_expense_sheet_form_view_hr_expense_specific_journal_inherit" model="ir.ui.view">
+            <field name="name">hr.expense.sheet.form.hr.expense.specific.journal.inherit</field>
+            <field name="model">hr.expense.sheet</field>
+            <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_form"/>
+            <field name="arch" type="xml">
+                <field name="journal_id" position="attributes">
+                    <attribute name="domain">[('is_expense_journal','=',True)]</attribute>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>
