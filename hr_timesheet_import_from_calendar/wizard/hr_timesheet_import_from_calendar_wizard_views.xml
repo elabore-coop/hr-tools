@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_timesheet_import_from_calendar_wizard_view" model="ir.ui.view"> 
+        <field name="name">hr.timesheet.import.from.calendar.wizard.view</field>
+        <field name="model">hr.timesheet.import.from.calendar.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="imported" invisible="True" />
+                Du <field name="date_from" />
+                Au <field name="date_to" />
+                <button name="action_import" type="object" string="Récupérer la liste" />
+
+                <field name="warning" invisible="True" />
+                
+                <div attrs="{'invisible': [('warning', '=', False)]}">
+                    <p class="oe_field_label" style="color: red;">Attention: Certaines lignes ont déjà été importées !</p>
+                </div>
+                <field name="lines" attrs="{'invisible': [('imported', '=', False)]}">
+                    <tree editable="bottom" decoration-warning="warning != False">
+                        <field name="date" />
+                        <field name="project_id" />
+                        <field name="name" />
+                        <field name="unit_amount" />                        
+                        <field name="warning" invisible="True" />
+                    </tree>
+                </field>
+                <footer>
+                    <button class="oe_highlight" name="action_confirm" type="object" string="Créer les feuilles de temps" attrs="{'invisible': [('imported', '=', False)]}" />
+                    <button special="cancel" string="Cancel" class="oe_link" />
+                </footer>
+                
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_timesheet_import_from_calendar_wizard" model="ir.actions.act_window">
+        <field name="name">Importer depuis le calendrier</field>
+        <field name="res_model">hr.timesheet.import.from.calendar.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="timesheet_menu_import_from_calendar"
+        action="action_hr_timesheet_import_from_calendar_wizard"
+        sequence="11"
+        parent="hr_timesheet.timesheet_menu_root"
+        groups="hr_timesheet.group_hr_timesheet_user"
+    />
+
+</odoo>

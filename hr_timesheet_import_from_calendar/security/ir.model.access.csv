@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_timesheet_import_from_calendar_wizard,access.hr.timesheet.import.from.calendar.wizard,model_hr_timesheet_import_from_calendar_wizard,hr_timesheet.group_hr_timesheet_user,1,1,1,1
+access_hr_timesheet_import_from_calendar_wizard_line,access.hr.timesheet.import.from.calendar.wizard.line,model_hr_timesheet_import_from_calendar_wizard_line,hr_timesheet.group_hr_timesheet_user,1,1,1,1
