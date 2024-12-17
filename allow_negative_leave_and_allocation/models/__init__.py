@@ -1,1 +1,1 @@
-from . import hr_leave_type, hr_leave
+from . import hr_leave_type, hr_leave, hr_leave_allocation
