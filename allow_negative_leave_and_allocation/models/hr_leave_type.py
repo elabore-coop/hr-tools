@@ -18,3 +18,8 @@ class HolidaysType(models.Model):
         for holiday_type in res:
             if not holiday_type.has_valid_allocation:
                 holiday_type.has_valid_allocation = holiday_type.allows_negative
+
+    def _get_days_request(self):
+        res = super()._get_days_request()
+        res[1]['allows_negative'] = self.allows_negative
+        return res

@@ -3,7 +3,7 @@
 
 {
     "name": "allow_negative_leave_and_allocation",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "author": "Elabore",
     "website": "https://elabore.coop",
     "maintainer": "Elabore",
@@ -23,6 +23,11 @@
         "views/hr_leave_type_views.xml",
         "views/hr_leave_views.xml",
     ],
+    "assets": {
+        'web.assets_backend': [
+            'allow_negative_leave_and_allocation/static/src/xml/time_off_card.xml',
+        ],
+    },
     # only loaded in demonstration mode
     "demo": [],
     "js": [],
