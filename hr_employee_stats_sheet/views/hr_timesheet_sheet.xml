@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+        <record id="view_hr_timesheet_sheet_form_inherit" model="ir.ui.view">
+            <field name="name">hr.timesheet.sheet.form.inherit</field>
+            <field name="model">hr_timesheet.sheet</field>
+            <field name="inherit_id" ref="hr_timesheet_sheet.hr_timesheet_sheet_form"/>
+            <field name="arch" type="xml">
+                <group name="dates" position="inside">
+                    <field name="timesheet_sheet_gap_hours" string="Total gap hours in this timesheet sheet time range" widget="float_time"/>
+                    <field name="timesheet_sheet_recovery_hours" string="Total recovery hours in this timesheet sheet time range" widget="float_time" style="font-weight: bold"/>
+                    <button 
+                        colspan="2" 
+                        class="oe_highlight" 
+                        name="action_generate_recovery_allocation" 
+                        string='Create recovery allocation' 
+                        type='object'
+                        attrs="{'invisible': ['|', ('can_review', '=', False), ('state', '!=', 'done')]}"
+                        />
+                </group> 
+                <xpath expr="//notebook" position="inside">
+                    <page string="Employee Stats">
+                        <field name="employee_stats_ids" no_label="1" readonly="1"/>
+                    </page>
+                    <page string="Generated recovery allocations">
+                        <field name="recovery_allocation_ids" no_label="1" readonly="1"/>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        <record id="hr_timesheet_sheet_stats_overview_pivot_view" model="ir.ui.view">
+            <field name="name">hr.timesheet.sheet.stats.overview.pivot.view</field>
+            <field name="model">hr_timesheet.sheet</field>
+            <field name="arch" type="xml">
+                <pivot string="Employee time stats pivot" sample="1">
+                    <field name="employee_id" type="row"/>
+                </pivot>
+            </field>
+        </record>
+    </data>
+</odoo>
