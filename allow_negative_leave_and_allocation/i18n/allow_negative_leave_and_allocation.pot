@@ -1,0 +1,60 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* allow_negative_leave_and_allocation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-02 12:11+0000\n"
+"PO-Revision-Date: 2025-01-02 12:11+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: allow_negative_leave_and_allocation
+#: model:ir.model.fields,field_description:allow_negative_leave_and_allocation.field_hr_leave_type__allows_negative
+msgid "Allow Negative Leaves"
+msgstr ""
+
+#. module: allow_negative_leave_and_allocation
+#: model_terms:ir.ui.view,arch_db:allow_negative_leave_and_allocation.hr_leave_type_negative_leave
+msgid "Allow negative"
+msgstr ""
+
+#. module: allow_negative_leave_and_allocation
+#: model:ir.model.fields,help:allow_negative_leave_and_allocation.field_hr_leave_type__allows_negative
+msgid ""
+"If checked, users request can exceed the allocated days and balance can go "
+"in negative."
+msgstr ""
+
+#. module: allow_negative_leave_and_allocation
+#: model:ir.model.constraint,message:allow_negative_leave_and_allocation.constraint_hr_leave_allocation_duration_check
+msgid "The duration must be greater than 0."
+msgstr ""
+
+#. module: allow_negative_leave_and_allocation
+#: model:ir.model.constraint,message:allow_negative_leave_and_allocation.constraint_hr_leave_allocation_type_value
+msgid ""
+"The employee, department, company or employee category of this request is "
+"missing. Please make sure that your user login is linked to an employee."
+msgstr ""
+
+#. module: allow_negative_leave_and_allocation
+#: model:ir.model,name:allow_negative_leave_and_allocation.model_hr_leave
+msgid "Time Off"
+msgstr ""
+
+#. module: allow_negative_leave_and_allocation
+#: model:ir.model,name:allow_negative_leave_and_allocation.model_hr_leave_allocation
+msgid "Time Off Allocation"
+msgstr ""
+
+#. module: allow_negative_leave_and_allocation
+#: model:ir.model,name:allow_negative_leave_and_allocation.model_hr_leave_type
+msgid "Time Off Type"
+msgstr ""
