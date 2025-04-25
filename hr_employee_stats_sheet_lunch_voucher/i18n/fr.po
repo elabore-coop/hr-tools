@@ -1,0 +1,86 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_employee_stats_sheet_lunch_voucher
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-11 13:19+0000\n"
+"PO-Revision-Date: 2025-06-11 13:19+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_employee_stats_sheet_lunch_voucher
+#: model:ir.model.fields,help:hr_employee_stats_sheet_lunch_voucher.field_res_config_settings__lunch_voucher_min_worked_hours
+msgid ""
+"5h by default, meaning that if an employee works 5h or more in a day, he "
+"will get a lunch voucher"
+msgstr "5h par défaut"
+
+#. module: hr_employee_stats_sheet_lunch_voucher
+#: model_terms:ir.ui.view,arch_db:hr_employee_stats_sheet_lunch_voucher.res_config_settings_view_form
+msgid ""
+"<span class=\"fa fa-lg fa-building\" title=\"Minimal number of hours worked "
+"in a day to get a lunch voucher.\" groups=\"base.group_multi_company\"/>"
+msgstr ""
+"<span class=\"fa fa-lg fa-building\" title=\"Nombre minimal d'heures travaillées "
+"dans une journée pour cumuler un prime repas.\" groups=\"base.group_multi_company\"/>"
+
+#. module: hr_employee_stats_sheet_lunch_voucher
+#: model:ir.model,name:hr_employee_stats_sheet_lunch_voucher.model_res_company
+msgid "Companies"
+msgstr "Sociétés"
+
+#. module: hr_employee_stats_sheet_lunch_voucher
+#: model:ir.model,name:hr_employee_stats_sheet_lunch_voucher.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de configuration"
+
+#. module: hr_employee_stats_sheet_lunch_voucher
+#: model:ir.model,name:hr_employee_stats_sheet_lunch_voucher.model_hr_employee_stats
+msgid "Employee Stats"
+msgstr "Statistique de l'employé·e"
+
+#. module: hr_employee_stats_sheet_lunch_voucher
+#: model_terms:ir.ui.view,arch_db:hr_employee_stats_sheet_lunch_voucher.res_config_settings_view_form
+msgid ""
+"Indicate the minimal number of hours worked in a day to get a lunch voucher "
+"(by default 5 hours)."
+msgstr "Indiquez le nombre d'heures minimal pour cumuler une prime repas/ticket restaurant"
+
+#. module: hr_employee_stats_sheet_lunch_voucher
+#: model:ir.model.fields,field_description:hr_employee_stats_sheet_lunch_voucher.field_hr_employee_stats__lunch_voucher
+msgid "Lunch Voucher"
+msgstr "Ticket restaurant"
+
+#. module: hr_employee_stats_sheet_lunch_voucher
+#: model:ir.model.fields,field_description:hr_employee_stats_sheet_lunch_voucher.field_res_company__lunch_voucher_min_worked_hours
+msgid "Lunch Voucher Min Worked Hours"
+msgstr "Prime repas Nombre d'heures minimal"
+
+#. module: hr_employee_stats_sheet_lunch_voucher
+#: model:ir.model.fields,field_description:hr_employee_stats_sheet_lunch_voucher.field_hr_timesheet_sheet__lunch_voucher_count
+#: model_terms:ir.ui.view,arch_db:hr_employee_stats_sheet_lunch_voucher.hr_timesheet_sheet_tree_lunch_voucher_inherit
+#: model_terms:ir.ui.view,arch_db:hr_employee_stats_sheet_lunch_voucher.timesheet_sheet_form_lunch_voucher_inherit
+msgid "Lunch voucher Count"
+msgstr "Nombre de ticket restaurant"
+
+#. module: hr_employee_stats_sheet_lunch_voucher
+#: model:ir.model.fields,field_description:hr_employee_stats_sheet_lunch_voucher.field_res_config_settings__lunch_voucher_min_worked_hours
+msgid "Minimal number of hours worked in a day to get a lunch voucher"
+msgstr "Nombre d'heures minimal pour cumuler une prime repas/ticket restaurant"
+
+#. module: hr_employee_stats_sheet_lunch_voucher
+#: model:ir.model,name:hr_employee_stats_sheet_lunch_voucher.model_hr_timesheet_sheet
+msgid "Timesheet Sheet"
+msgstr "Feuille de temps"
+
+#. module: hr_employee_stats_sheet_lunch_voucher
+#: model_terms:ir.ui.view,arch_db:hr_employee_stats_sheet_lunch_voucher.hr_employee_stats_tree_lunch_voucher_inherit
+msgid "Total"
+msgstr ""
