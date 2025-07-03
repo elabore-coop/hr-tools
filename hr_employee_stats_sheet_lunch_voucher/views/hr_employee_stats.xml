@@ -1,0 +1,12 @@
+<odoo>
+    <record id="hr_employee_stats_tree_lunch_voucher_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.stats.tree.lunch.voucher.inherit</field>
+        <field name="model">hr.employee.stats</field>
+        <field name="inherit_id" ref="hr_employee_stats_sheet.view_hr_employee_stats_tree"/>
+        <field name="arch" type="xml">
+            <field name="total_hours" position="after">
+                <field name="lunch_voucher" sum="Total"/>
+            </field>
+        </field>
+    </record>
+</odoo>
