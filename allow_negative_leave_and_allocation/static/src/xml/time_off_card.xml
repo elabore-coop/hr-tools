@@ -2,7 +2,9 @@
    <t t-name="allow_negative_leave_and_allocation.TimeOffCard" t-inherit="hr_holidays.TimeOffCard" t-inherit-mode="extension" owl="1">
         <xpath expr="//t[@t-set='duration']" position="replace">
             <t t-set="duration" t-value="props.requires_allocation 
-                ? (props.data['allows_negative'] ? data.usable_remaining_leaves : data.virtual_remaining_leaves) 
+                ? (props.data['allows_negative'] 
+                    ? (data.virtual_remaining_leaves > 0 ? data.virtual_remaining_leaves : data.usable_remaining_leaves) 
+                    : data.virtual_remaining_leaves)
                 : data.virtual_leaves_taken" />
         </xpath>
     </t>
