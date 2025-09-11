@@ -1,0 +1,27 @@
+{
+    "name": "hr_employee_stats_sheet",
+    "version": "16.0.1.0.1",
+    "description": "Add global sheet for employee stats",
+    "summary": "Add global sheet for employee stats",
+    "author": "Nicolas JEUDY",
+    "website": "https://github.com/Alusage/odoo-hr-addons",
+    "license": "LGPL-3",
+    "category": "Human Resources",
+    "depends": [
+        "allow_negative_leave_and_allocation",
+        "base",
+        "hr",
+        "hr_holidays",
+        "hr_timesheet",
+        "hr_timesheet_sheet",
+        "resource",
+    ],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/hr_employee_stats.xml",
+        "views/hr_timesheet_sheet.xml",
+        "views/res_config_settings_views.xml",
+    ],
+    "installable": True,
+    "application": False,
+}
