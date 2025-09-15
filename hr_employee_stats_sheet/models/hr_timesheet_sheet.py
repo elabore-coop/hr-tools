@@ -100,56 +100,36 @@ class HrTimesheetSheet(models.Model):
                 sheet.recovery_allocation_ids.write({"state": "refuse"})
         return res
 
-    def _get_contract_in_progress_during_timesheet_sheet_time_period(self):
+    def _get_contracts_in_progress_during_timesheet_sheet_time_period(self):
         """
-        get the contract which was in progress during the timesheet sheet range time : 
-        - the contrat start date must be before the timesheet sheet start date
-        - the contrat end date can be not defined or must be after the timesheet sheet end date
-        - the state can be closed today or still open
+        get the contracts which was in progress during the timesheet sheet range time
         """
-        contract_in_progress_during_timesheet = self.env["hr.contract"].search(
+        contracts = self.env["hr.contract"].search(
             [
-                ("employee_id", "=", self.employee_id.id),
-                ("state", "in", ("open","close")),
-                ("date_start", "<=", self.date_start),
-                ("date_end", ">=", self.date_end or None),
-            ],
-            order="date_start desc",
-            limit=1,
-        )
-        return contract_in_progress_during_timesheet
-
-    def _check_new_contract_starting_during_timesheet(self):
-        """
-        check if there was a contract starting during the timesheet sheet range time
-        :return: raise error if there is a contract starting during the timesheet sheet range time
-        """
-        contract_starting_during_timesheet_ids = self.env["hr.contract"].search(
-            [
-                ("employee_id", "=", self.employee_id.id),
-                ("state", "in", ("open","close")),
-                ("date_start", ">", self.date_start),
-                ("date_start", "<=", self.date_end),
+            ("employee_id", "=", self.employee_id.id),
+            ("state", "in", ("open", "close")),
+            ("date_start", "<=", self.date_end),
+            "|",
+            ("date_end", "=", False),  # pas de date de fin OU
+            ("date_end", ">=", self.date_start),  # date de fin après le début
             ],
         )
-        if contract_starting_during_timesheet_ids:
-            raise UserError(
-                _("There is a contract starting during the timesheet sheet time period for the employee %s"
-                  "Please create a new timesheet sheet starting from the new contract start date")
-                % self.employee_id.display_name
-            )
+        return contracts
 
     def _get_calendar_in_progress_during_timesheet_time_period(self):
         """
         get the ressource calendar which was used during the timesheet sheet time period 
         """
-        # get work contrat in progress for the employe during the timesheet sheet time period
-        contract_during_timesheet_sheet = self._get_contract_in_progress_during_timesheet_sheet_time_period()
-        if contract_during_timesheet_sheet:
+        #checks if only one contract runs over the duration of the timesheet
+        contracts = self._get_contracts_in_progress_during_timesheet_sheet_time_period()
+        if len(contracts) > 1:
             # check if a new contract start during timesheet sheet time period. If yes, raise an error
-            self._check_new_contract_starting_during_timesheet()
+                raise UserError(
+                    _("There is a contract starting during the timesheet sheet time period for the employee %s"
+                    "Please create a new timesheet sheet starting from the new contract start date")
+                    % self.employee_id.display_name
+            )           
             # get the ressource calendar id according to the work contract
-            return contract_during_timesheet_sheet.resource_calendar_id
         elif self.employee_id.resource_calendar_id:
             return self.employee_id.resource_calendar_id
         elif self.env.company.resource_calendar_id:

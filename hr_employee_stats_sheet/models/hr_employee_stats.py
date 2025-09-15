@@ -1,6 +1,6 @@
 import logging
 
-from odoo import api, fields, models, _
+from odoo import api, fields, models
 from datetime import timedelta
 
 _logger = logging.getLogger(__name__)
@@ -130,10 +130,10 @@ class HrEmployeeStats(models.Model):
             return total_recovery_hours
 
     def _get_total_leave_hours(self):
-        leave = self.env["hr.leave"]
+        total_leave_hours = 0
         for stat in self:
             if stat.date and stat.employee_id:
-                leave_ids = leave.search(
+                leave_ids = self.env["hr.leave"].search(
                     [
                         ("employee_id", "=", stat.employee_id.id),
                         ("holiday_status_id", "!=", stat._get_holiday_status_id()),
@@ -141,20 +141,7 @@ class HrEmployeeStats(models.Model):
                         ("request_date_to", "<=", stat.date),
                     ]
                 )
-                # retire des congés les jours où j'ai travaillé (car présence dans l'app présence) alors que j'étais noté en congé
-                # TODO faire pareil avec les feuilles de temps?
-                intersect_hours = sum(leave_ids.mapped("number_of_hours_display"))
-                # for leave_id in leave_ids:
-                #     for attendance_id in stat.attendance_ids:
-                #         intersect_hours -= stat._get_intersects(
-                #             leave_id.date_from,
-                #             leave_id.date_to,
-                #             attendance_id.check_in,
-                #             attendance_id.check_out,
-                #         )
-                total_leave_hours = intersect_hours
-            else:
-                total_leave_hours = 0
+                total_leave_hours = sum(leave_ids.mapped("number_of_hours_display"))
             return total_leave_hours
 
     @api.depends("employee_id", "date")
@@ -195,15 +182,8 @@ class HrEmployeeStats(models.Model):
             total_recovery_hours = stat._get_total_recovery_hours()
             total_planned_hours = stat._get_total_planned_hours()
             total_leave_hours = stat._get_total_leave_hours()
-            # balance = (
-            #     total_hours
-            #     + total_recovery_hours
-            #     + total_leave_hours
-            #     - total_planned_hours
-            # )
             stat.total_hours = total_hours
             stat.total_planned_hours = total_planned_hours
-            #stat.gap_hours = balance
             stat.gap_hours = stat._get_gap_hours(total_hours, total_recovery_hours, total_leave_hours, total_planned_hours)
             stat.total_recovery_hours = total_recovery_hours
             stat.total_leave_hours = total_leave_hours

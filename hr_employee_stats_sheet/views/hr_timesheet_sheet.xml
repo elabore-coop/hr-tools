@@ -14,7 +14,9 @@
                         name="action_generate_recovery_allocation" 
                         string='Create recovery allocation' 
                         type='object'
-                        attrs="{'invisible': ['|', ('can_review', '=', False), ('state', '!=', 'done')]}"
+                        attrs="{'invisible': ['|', ('can_review', '=', False),
+                         ('state', '!=', 'done'),
+                         ('timesheet_sheet_recovery_hours', '=', 0)]}"
                         />
                 </group> 
                 <xpath expr="//notebook" position="inside">
